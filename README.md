@@ -71,11 +71,21 @@ docker-compose --version
 
 ![image-2](docs/2.png)
 
-### 构建
+### 4、构建
 
 ```shell
 ./build.sh
 ```
+
+### 5、使用配置
+
+如果是使用Quantumult X的，请参考下面的配置
+
+```
+shadowsocks=abc.com:10010, method=chacha20-ietf-poly1305, password=password123, fast-open=false, udp-relay=false, tag=解锁网易云音乐Node
+```
+
+其他的自行研究，都差不多
 
 
 
