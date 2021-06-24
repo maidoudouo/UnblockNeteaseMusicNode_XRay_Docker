@@ -14,7 +14,7 @@ services:
             # 留空就是默认音源（默认音源：bb音乐、酷狗、酷我）
             # 具体参考：https://github.com/1715173329/UnblockNeteaseMusic
             SOURCE: ""
-            ENABLE_FLAC: true # 启用无损音质，不需要的话直接注释该行即可
+            ENABLE_FLAC: "yes" # 启用无损音质，不需要的话直接注释该行即可
         dns:
             - 114.114.114.114
             - 223.5.5.5
