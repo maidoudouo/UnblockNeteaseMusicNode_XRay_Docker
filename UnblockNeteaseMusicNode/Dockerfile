@@ -8,6 +8,7 @@ RUN apk update && \
     apk add git
 
 RUN git clone https://github.com/1715173329/UnblockNeteaseMusic.git /UnblockNeteaseMusic
+# RUN git clone https://hub.fastgit.org/1715173329/UnblockNeteaseMusic.git /UnblockNeteaseMusic
 
 FROM alpine:latest
 
