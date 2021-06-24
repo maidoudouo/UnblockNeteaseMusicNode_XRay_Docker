@@ -1,0 +1,25 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 10010,
+      "protocol": "shadowsocks",
+      "settings": {
+        "method": "chacha20-ietf-poly1305",
+        "ota": false,
+        "password": "password123"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "out",
+      "protocol": "freedom",
+      "settings": {
+        "redirect": "UnblockNeteaseMusicNode:5200"
+      }
+    }
+  ]
+}

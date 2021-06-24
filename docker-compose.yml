@@ -1,0 +1,43 @@
+version: '3.6'
+services:
+    unblockneteasemusic_node:
+        image: unblockneteasemusic_node
+        build: ./UnblockNeteaseMusicNode/
+        container_name: UnblockNeteaseMusicNode_UnblockNeteaseMusicNode
+        restart: always
+        volumes:
+            - ./cert/server.crt:/UnblockNeteaseMusic/server.crt
+            - ./cert/server.key:/UnblockNeteaseMusic/server.key
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+        environment:
+            # 留空就是默认音源（默认音源：bb音乐、酷狗、酷我）
+            # 具体参考：https://github.com/1715173329/UnblockNeteaseMusic
+            SOURCE: ""
+        dns:
+            - 114.114.114.114
+            - 223.5.5.5
+        networks:
+            backend:
+                aliases:
+                    - UnblockNeteaseMusicNode
+
+    xray:
+        image: teddysun/xray
+        container_name: UnblockNeteaseMusicNode_XRay
+        restart: always
+        volumes:
+            - ./xray/config.json:/etc/xray/config.json
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+        ports:
+            - "10010:10010"
+        depends_on: 
+            - unblockneteasemusic_node
+        networks:
+            backend:
+                aliases:
+                    - xray
+
+networks:
+    backend:
